@@ -1,0 +1,58 @@
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '1.3.0'
+}
+
+group 'com.github.juggernaut0.bigint'
+version '0.1'
+
+kotlin {
+    targets {
+        fromPreset(presets.jvm, "jvm")
+    }
+    
+    sourceSets {
+        commonMain {
+            repositories {
+                mavenCentral()
+            }
+
+            dependencies {
+                implementation "org.jetbrains.kotlin:kotlin-stdlib-common"
+            }
+        }
+
+        commonTest {
+            repositories {
+                mavenCentral()
+            }
+
+            dependencies {
+                implementation "org.jetbrains.kotlin:kotlin-test-common"
+                implementation "org.jetbrains.kotlin:kotlin-test-annotations-common"
+            }
+        }
+
+        jvmMain {
+            dependsOn commonMain
+            repositories {
+                mavenCentral()
+            }
+
+            dependencies {
+                implementation "org.jetbrains.kotlin:kotlin-stdlib"
+            }
+        }
+
+        jvmTest {
+            dependsOn commonTest
+            repositories {
+                mavenCentral()
+            }
+
+            dependencies {
+                implementation "org.jetbrains.kotlin:kotlin-test"
+                implementation "org.jetbrains.kotlin:kotlin-test-junit"
+            }
+        }
+    }
+}
