@@ -1,6 +1,7 @@
 package com.github.juggernaut0.bigint
 
 fun String.toBigInteger(): BigInteger {
+    if (isEmpty()) throw NumberFormatException("empty string")
     var result = BigInteger.ZERO
     val neg = get(0) == '-'
     val start = if (neg) 1 else 0

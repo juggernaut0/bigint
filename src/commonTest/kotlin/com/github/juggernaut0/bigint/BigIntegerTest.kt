@@ -1,5 +1,5 @@
-import com.github.juggernaut0.bigint.BigInteger
-import com.github.juggernaut0.bigint.toBigInteger
+package com.github.juggernaut0.bigint
+
 import kotlin.test.*
 
 @ExperimentalUnsignedTypes
@@ -60,6 +60,13 @@ class BigIntegerTest {
     fun toStringTest() {
         assertEquals("12345678", BigInteger(12345678).toString())
         assertEquals("-152415787526596567801", (BigInteger(-12345678901) * BigInteger(12345678901)).toString())
+    }
+
+    @Test
+    fun toStringWithPrecision() {
+        assertEquals("1.2e6", BigInteger(1234567).toString(2))
+        assertEquals("1.2345e6", BigInteger(1234567).toString(5))
+        assertEquals("1234567", BigInteger(1234567).toString(8))
     }
 
     @Test

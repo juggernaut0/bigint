@@ -48,6 +48,17 @@ class BigInteger private constructor(private val bytes: UByteArray, private val 
         return digits.joinToString(separator = "")
     }
 
+    fun toString(precision: Int): String {
+        val s = toString().trimStart('-')
+        val truncAmt = (s.length - precision).coerceAtLeast(0)
+        val pre = if (neg) "-" else ""
+        return if (truncAmt == 0) {
+            pre + s
+        } else {
+            "$pre${s[0]}.${s.substring(1, precision)}e${s.length-1}"
+        }
+    }
+
     fun toLong(): Long {
         var result: Long = 0
         for (i in bytes.indices) {
