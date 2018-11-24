@@ -1,14 +1,14 @@
-#BigInt
+# BigInt
 
 Kotlin Multiplatform implementation of arbitrary-precision 
-integers. For use in cross-platform application without need of 
-`expect`/`actual` declarations.
+integers. For use in cross-platform applications without the need 
+of `expect`/`actual` declarations.
 
-##Maven Dependency
+## Maven Dependency
 
 Coming Soon
 
-##Usage
+## Usage
 
 Extension functions are provided for easy conversion.
 
@@ -21,7 +21,7 @@ Extension functions are provided for easy conversion.
 "123456789012345678901234567890".toBigInteger()
 ```
 
-##TODOs
+## TODOs
 
  * Improve performance, especially of `String.toBigInteger()`
  * Support pow, exp, log, and other operations
